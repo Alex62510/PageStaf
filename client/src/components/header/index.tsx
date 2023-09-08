@@ -1,5 +1,5 @@
 import s from './index.module.css'
-import {Button, Layout, Space, Typography} from "antd";
+import {Layout, Space, Typography} from "antd";
 import {TeamOutlined} from "@ant-design/icons";
 import {CustomButton} from "../custom-batton";
 import {Link} from "react-router-dom";
@@ -11,7 +11,7 @@ export const Header = () => {
             <Space>
                 <TeamOutlined className={s.teamIcon}/>
                 <Link to={Paths.home}>
-                    <CustomButton type={'text'}>
+                    <CustomButton type={'ghost'}>
                         <Typography.Title level={1}>
                             Staffs
                         </Typography.Title>
@@ -20,12 +20,12 @@ export const Header = () => {
             </Space>
             <Space>
                 <Link to={Paths.register}>
-                    <CustomButton type={"text"}>
+                    <CustomButton type={"ghost"}>
 
                     </CustomButton>
                 </Link>
                 <Link to={Paths.login}>
-                    <CustomButton type={"text"}>
+                    <CustomButton type={"ghost"}>
                         Enter to login
                     </CustomButton>
                 </Link>
