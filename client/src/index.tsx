@@ -6,15 +6,21 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {Paths} from "./paths";
+import {Login} from "./pages/login";
+import {Index} from "./pages/register";
 
 const router = createBrowserRouter([
     {
+        path:Paths.home,
+        element:<h1>Employees</h1>
+    },
+    {
         path:Paths.login,
-        element:<h1>Login</h1>
+        element:<Login/>
     },
     {
         path:Paths.register,
-        element:<h1>Register</h1>
+        element:<Index/>
     }
 ])
 const container = document.getElementById('root')!;
