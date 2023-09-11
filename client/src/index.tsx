@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import {Paths} from "./paths";
 import {Login} from "./pages/login";
-import {Index} from "./pages/register";
+import {Register} from "./pages/register";
 import {ConfigProvider, theme} from "antd";
 
 const router = createBrowserRouter([
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     },
     {
         path:Paths.register,
-        element:<Index/>
+        element:<Register/>
     }
 ])
 const container = document.getElementById('root')!;

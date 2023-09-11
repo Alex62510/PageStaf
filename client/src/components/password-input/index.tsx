@@ -14,7 +14,7 @@ export const PasswordInput = ({name, placeholder, dependencies}: Props) => {
             hasFeedback
             rules={[{
                 required: true,
-                message: 'required field'
+                message: 'Required field'
             }, ({getFieldValue}) => ({
                 validator(_, value) {
                     if (!value) {
@@ -26,7 +26,7 @@ export const PasswordInput = ({name, placeholder, dependencies}: Props) => {
                         }
                         return Promise.reject(new Error('Password must be the same'))
                     } else {
-                        if (value.level < 6) {
+                        if (value.length < 6) {
                             return Promise.reject(new Error('Password must be longer then 6 symbols'))
                         }
                         return Promise.resolve()

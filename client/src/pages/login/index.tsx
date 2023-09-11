@@ -21,7 +21,7 @@ export const Login = () => {
                     </Form>
                     <Space direction='vertical' size='large'>
                         <Typography.Text>
-                            No account <Link to={Paths.register}>Register</Link>
+                            No account? <Link to={Paths.register}>Register</Link>
                         </Typography.Text>
                     </Space>
                 </Card>
