@@ -2,10 +2,21 @@ import s from './index.module.css'
 import {Layout, Space, Typography} from "antd";
 import {LoginOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
 import {CustomButton} from "../custom-batton";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Paths} from "../../paths";
+import {useDispatch, useSelector} from "react-redux";
+import {logout, selectUser} from "../../features/auth/authSlice";
 
 export const Header = () => {
+    const user = useSelector(selectUser)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const onLogoutClick = () => {
+        dispatch(logout());
+        localStorage.removeItem('token')
+        navigate('/login')
+    }
     return (
         <Layout.Header className={s.header}>
             <Space>
@@ -18,7 +29,11 @@ export const Header = () => {
                     </CustomButton>
                 </Link>
             </Space>
-            <Space>
+            {user ? (
+                <CustomButton type='ghost' icon={<LoginOutlined />} onClick={onLogoutClick}>
+                    Logout
+                </CustomButton>
+            ) : (<Space>
                 <Link to={Paths.register}>
                     <CustomButton type={"ghost"} icon={<UserOutlined/>}>
                         register
@@ -29,7 +44,8 @@ export const Header = () => {
                         login
                     </CustomButton>
                 </Link>
-            </Space>
+            </Space>)
+            }
         </Layout.Header>
     )
 }
