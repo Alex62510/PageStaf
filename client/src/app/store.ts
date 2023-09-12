@@ -7,6 +7,9 @@ export const store = configureStore({
       [api.reducerPath]:api.reducer,
         auth
     },
+    middleware:(getDefaultMiddleware)=>{
+        return getDefaultMiddleware().concat(api.middleware)
+    }
 });
 
 export type AppDispatch = typeof store.dispatch;

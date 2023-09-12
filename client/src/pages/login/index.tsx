@@ -3,18 +3,21 @@ import {Card, Form, Row, Space, Typography} from "antd";
 import {CustomInput} from "../../components/custom-input";
 import {PasswordInput} from "../../components/password-input";
 import {CustomButton} from "../../components/custom-batton";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Paths} from "../../paths";
 import {useLoginMutation, UserData} from "../../app/services/auth";
 import {isErrorMessage} from "../../utils/is-error-message";
 import {useState} from "react";
+import {ErrorMessge} from "../../components/error-message";
 
 export const Login = () => {
+    const navigate=useNavigate()
     const [loginUser, loginUserResult] = useLoginMutation()
     const [error, setError] = useState('')
     const login = async (data: UserData) => {
         try {
             await loginUser(data).unwrap()
+            navigate('/')
         } catch (err) {
             const maybeError = isErrorMessage(err)
             if (maybeError) {
@@ -39,6 +42,7 @@ export const Login = () => {
                         <Typography.Text>
                             No account? <Link to={Paths.register}>Register</Link>
                         </Typography.Text>
+                        <ErrorMessge message={error}/>
                     </Space>
                 </Card>
             </Row>
