@@ -10,7 +10,7 @@ import {DeleteOutlined, EditOutlined} from "@ant-design/icons";
 import {ErrorMessge} from "../../components/error-message";
 import {Paths} from "../../paths";
 import {isErrorMessage} from "../../utils/is-error-message";
-import e from "express";
+
 
 
 export const Employee = () => {
