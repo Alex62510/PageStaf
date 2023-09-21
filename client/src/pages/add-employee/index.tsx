@@ -31,7 +31,6 @@ const AddEmployee = () => {
             } else {
                 setError('unknown error')
             }
-
         }
     }
     return (

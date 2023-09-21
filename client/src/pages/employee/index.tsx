@@ -11,8 +11,6 @@ import {ErrorMessge} from "../../components/error-message";
 import {Paths} from "../../paths";
 import {isErrorMessage} from "../../utils/is-error-message";
 
-
-
 export const Employee = () => {
     const navigate = useNavigate()
     const [error, setError] = useState('')
